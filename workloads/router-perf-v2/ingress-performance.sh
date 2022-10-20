@@ -12,12 +12,14 @@ log "Service type: ${SERVICE_TYPE}"
 log "Terminations: ${TERMINATIONS}"
 log "Deployment replicas: ${DEPLOYMENT_REPLICAS}"
 log "###############################################"
+tune_liveness_probe
+sleep 60
 deploy_infra
 tune_workload_node apply
 client_pod=$(oc get pod -l app=http-scale-client -n http-scale-client | awk '/Running/{print $1}')
 reschedule_monitoring_stack worker
 configure_ingress_images
-tune_liveness_probe
+#tune_liveness_probe
 if [[ ${METADATA_COLLECTION} == "true" ]]; then
   collect_metadata
 fi
