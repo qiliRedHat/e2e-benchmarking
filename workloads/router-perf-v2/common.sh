@@ -137,9 +137,12 @@ reschedule_monitoring_stack(){
    log "Re-scheduling monitoring stack to ${1} nodes"
    oc get cm -n openshift-monitoring cluster-monitoring-config -o yaml | sed "s#kubernetes.io/\w*#kubernetes.io/${1}#g" | oc apply -f -
    # cluster-monitoring-operator can take some time to reconcile the changes
-   sleep 1m
+   sleep 2m
    oc rollout status -n openshift-monitoring deploy/cluster-monitoring-operator
+   oc rollout status -n openshift-monitoring deployment/prometheus-adapter
+   oc rollout status -n openshift-monitoring deployment/kube-state-metrics
    oc rollout status -n openshift-monitoring sts/prometheus-k8s
+   oc rollout status -n openshift-monitoring sts/alertmanager-main
 }
 
 tune_workload_node(){
