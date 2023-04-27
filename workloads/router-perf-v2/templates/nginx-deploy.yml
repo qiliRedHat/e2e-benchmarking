@@ -15,6 +15,11 @@ spec:
       labels:
         app: nginx-{{.Replica}}
     spec:
+      nodeSelector: {{.nodeSelectorNginx}}
+      tolerations:
+      - effect: NoExecute 
+        key: {{.nodeSelectorNginx}}
+        operator: Exists 
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

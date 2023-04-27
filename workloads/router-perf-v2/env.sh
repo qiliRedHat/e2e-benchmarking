@@ -22,6 +22,7 @@ export SERVICE_TYPE=${SERVICE_TYPE:-NodePort}
 export NUMBER_OF_ROUTERS=${NUMBER_OF_ROUTERS:-2}
 export HOST_NETWORK=${HOST_NETWORK:-true}
 export NODE_SELECTOR=${NODE_SELECTOR:-'{node-role.kubernetes.io/workload: }'}
+export NODE_SELECTOR_NGINX=${NODE_SELECTOR_NGINX:-'{node-role.kubernetes.io/worker: }'}
 
 # Cluster information
 export CLUSTER_ID=$(oc get clusterversion -o jsonpath='{.items[].spec.clusterID}')
