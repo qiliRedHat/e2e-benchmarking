@@ -16,14 +16,13 @@ spec:
         app: http-scale-client
     spec:
       nodeSelector: {{.nodeSelector}}
-      tolerations:
-      - effect: NoSchedule
-        key: {{.tolerationKey}}
-        operator: Exists
       serviceAccountName: http-scale-client
       imagePullPolicy: Always
       hostNetwork: {{.hostNetwork}}
       tolerations:
+      - effect: NoSchedule
+        key: {{.tolerationKey}}
+        operator: Exists
       - effect: NoSchedule
         key: role
         operator: Equal
