@@ -20,7 +20,7 @@ jobs:
       inputVars:
         deploymentReplicas: {{ .DEPLOYMENT_REPLICAS }}
         nodeSelectorNginx: "{{ .NODE_SELECTOR_NGINX }}"
-        tolerationKey: "{{ TOLERATION_KEY }}"
+        tolerationKey: "{{ .TOLERATION_KEY }}"
 
     - objectTemplate: templates/http-service.yml
       replicas: {{ .NUMBER_OF_ROUTES }}
@@ -51,7 +51,7 @@ jobs:
       inputVars:
         deploymentReplicas: {{ .DEPLOYMENT_REPLICAS }}
         nodeSelectorNginx: "{{ .NODE_SELECTOR_NGINX }}"
-        tolerationKey: "{{ TOLERATION_KEY }}"
+        tolerationKey: "{{ .TOLERATION_KEY }}"
 
     - objectTemplate: templates/http-service.yml
       replicas: {{ .NUMBER_OF_ROUTES }}
@@ -82,7 +82,7 @@ jobs:
       inputVars:
         deploymentReplicas: {{ .DEPLOYMENT_REPLICAS }}
         nodeSelectorNginx: "{{ .NODE_SELECTOR_NGINX }}"
-        tolerationKey: "{{ TOLERATION_KEY }}"
+        tolerationKey: "{{ .TOLERATION_KEY }}"
 
     - objectTemplate: templates/https-service.yml
       replicas: {{ .NUMBER_OF_ROUTES }}
@@ -113,7 +113,7 @@ jobs:
       inputVars:
         deploymentReplicas: {{ .DEPLOYMENT_REPLICAS }}
         nodeSelectorNginx: "{{ .NODE_SELECTOR_NGINX }}"
-        tolerationKey: "{{ TOLERATION_KEY }}"
+        tolerationKey: "{{ .TOLERATION_KEY }}"
 
     - objectTemplate: templates/https-service.yml
       replicas: {{ .NUMBER_OF_ROUTES }}
