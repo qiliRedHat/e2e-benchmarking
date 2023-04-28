@@ -17,7 +17,7 @@ spec:
     spec:
       nodeSelector: {{.nodeSelectorNginx}}
       tolerations:
-      - effect: NoExecute
+      - effect: NoSchedule
         key: {{.tolerationKey}}
         operator: Exists
       affinity:
