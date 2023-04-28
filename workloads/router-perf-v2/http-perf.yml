@@ -19,7 +19,7 @@ jobs:
       replicas: {{ .NUMBER_OF_ROUTES }}
       inputVars:
         deploymentReplicas: {{ .DEPLOYMENT_REPLICAS }}
-        nodeSelectorNginx: {{ .NODE_SELECTOR_NGINX }}
+        nodeSelectorNginx: "{{ .NODE_SELECTOR_NGINX }}"
 
     - objectTemplate: templates/http-service.yml
       replicas: {{ .NUMBER_OF_ROUTES }}
@@ -49,7 +49,7 @@ jobs:
       replicas: {{ .NUMBER_OF_ROUTES }}
       inputVars:
         deploymentReplicas: {{ .DEPLOYMENT_REPLICAS }}
-        nodeSelectorNginx: {{ .NODE_SELECTOR_NGINX }}
+        nodeSelectorNginx: "{{ .NODE_SELECTOR_NGINX }}"
 
     - objectTemplate: templates/http-service.yml
       replicas: {{ .NUMBER_OF_ROUTES }}
@@ -79,7 +79,7 @@ jobs:
       replicas: {{ .NUMBER_OF_ROUTES }}
       inputVars:
         deploymentReplicas: {{ .DEPLOYMENT_REPLICAS }}
-        nodeSelectorNginx: {{ .NODE_SELECTOR_NGINX }}
+        nodeSelectorNginx: "{{ .NODE_SELECTOR_NGINX }}"
 
     - objectTemplate: templates/https-service.yml
       replicas: {{ .NUMBER_OF_ROUTES }}
@@ -109,7 +109,7 @@ jobs:
       replicas: {{ .NUMBER_OF_ROUTES }}
       inputVars:
         deploymentReplicas: {{ .DEPLOYMENT_REPLICAS }}
-        nodeSelectorNginx: {{ .NODE_SELECTOR_NGINX }}
+        nodeSelectorNginx: "{{ .NODE_SELECTOR_NGINX }}"
 
     - objectTemplate: templates/https-service.yml
       replicas: {{ .NUMBER_OF_ROUTES }}
