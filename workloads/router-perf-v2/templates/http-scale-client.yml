@@ -16,6 +16,10 @@ spec:
         app: http-scale-client
     spec:
       nodeSelector: {{.nodeSelector}}
+      tolerations:
+      - effect: NoExecute
+        key: {{.tolerationKey}}
+        operator: Exists
       serviceAccountName: http-scale-client
       imagePullPolicy: Always
       hostNetwork: {{.hostNetwork}}
