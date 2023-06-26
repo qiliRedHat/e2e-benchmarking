@@ -49,6 +49,13 @@ deploy_infra(){
   curl -LsS ${KUBE_BURNER_RELEASE_URL} | tar xz kube-burner
   ./kube-burner init -c http-perf.yml --uuid=${UUID}
 
+  # The second and later router-perf test's performance is better than the first test's.
+  # The reason could be the first time of pod distribution is not even.
+  # load the pods for the second time to make the distribution even before running router-perf test.
+  log "Sleep 120s and start the second burner to make pods distributed evenly."
+  sleep 120
+  ./kube-burner init -c http-perf.yml --uuid=${UUID}
+
   log "Creating configmap from workload.py file"
   oc create configmap -n http-scale-client workload --from-file=workload.py
   log "Adding workload.py to the client pod"
