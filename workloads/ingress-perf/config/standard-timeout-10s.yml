@@ -12,7 +12,7 @@
   tuningPatch: '{"spec":{"nodePlacement": {"nodeSelector": {"matchLabels": {"node-role.kubernetes.io/infra": ""}}}, "replicas": 2}}'
   delay: 10s
   warmup: true
-  requestTimeout: 5s
+  requestTimeout: 10s
 
 - termination: http
   connections: 200
@@ -23,7 +23,7 @@
   tool: wrk
   serverReplicas: 45
   delay: 10s
-  requestTimeout: 5s
+  requestTimeout: 10s
 
 - termination: edge
   connections: 200
@@ -34,7 +34,7 @@
   tool: wrk
   serverReplicas: 45
   delay: 10s
-  requestTimeout: 5s
+  requestTimeout: 10s
 
 - termination: reencrypt
   connections: 200
@@ -45,7 +45,7 @@
   tool: wrk
   serverReplicas: 45
   delay: 10s
-  requestTimeout: 5s
+  requestTimeout: 10s
 
 - termination: passthrough
   connections: 200
@@ -56,5 +56,5 @@
   tool: wrk
   serverReplicas: 45
   delay: 10s
-  requestTimeout: 5s
+  requestTimeout: 10s
 
